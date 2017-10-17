@@ -1,0 +1,13 @@
+<ion-content padding class="login-page">
+      
+    <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
+        <ion-item>
+            <ion-input formControlName="dni" type="dni" placeholder="Documento Nacional de Identidad"></ion-input>
+        </ion-item>
+
+        <button ion-button class="login-button" type="submit">
+            Acceder
+        </button>
+    </form>
+    
+</ion-content>

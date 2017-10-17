@@ -1,0 +1,20 @@
+.login-page {
+    background-color:#f53d3d;
+
+    ion-item {
+        border-radius: 30px !important;
+        margin-bottom: 20px;
+        background-color: #f6f6f6;
+        font-size: 0.9em;
+    }
+
+    .login-button {
+        width: 100%;
+        border-radius: 30px;
+        font-size: 0.9em;
+        margin-top: 25px;
+        border: 1px solid #fff;
+        background-color: #D71919;
+    }
+
+}

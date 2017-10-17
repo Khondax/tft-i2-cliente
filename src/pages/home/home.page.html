@@ -1,18 +1,31 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Home</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+    <ion-refresher (ionRefresh)="refresh($event)">
+        <ion-refresher-content>
+            pullingIcon="arrow-dropdown"
+            refreshingSpinner="circles"
+            refreshingText="Actualizando...">
+        </ion-refresher-content>
+    </ion-refresher>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <ion-list>
+        <ion-item-group>
+            <ion-item *ngFor="let order of allOrders" (click)="goToMap($event, order)">
+                <h1>IdPedido: {{order.idPaquete}}</h1>
+                <h2>Fecha almacén: {{order.fechaEntradaAlmacen}}</h2>
+                <h2>Remitente: {{order.remitente}}</h2>
+                <h1>Estado: {{order.estado}}</h1>
+            </ion-item>
+        </ion-item-group>
+    </ion-list>
+
 </ion-content>

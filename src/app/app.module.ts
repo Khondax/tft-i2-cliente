@@ -3,27 +3,45 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+
+import { HomePage, LoginPage, MapPage, OrderPage, RegistryPage } from "../pages/pages";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+import { AngularFireModule } from "angularfire2";
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyDka8ZQF6bzjPhVJMZFAf7d0BBztxP_spg",
+  authDomain: "app-repartos-tft.firebaseapp.com",
+  databaseURL: "https://app-repartos-tft.firebaseio.com",
+  projectId: "app-repartos-tft",
+  storageBucket: "app-repartos-tft.appspot.com",
+  messagingSenderId: "1059307361256"
+};
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    LoginPage,
+    MapPage,
+    OrderPage,
+    RegistryPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    LoginPage,
+    MapPage,
+    OrderPage,
+    RegistryPage
   ],
   providers: [
     StatusBar,

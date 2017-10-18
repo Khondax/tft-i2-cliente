@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, MenuController } from 'ionic-angular';
 
-import { MapPage } from "../pages";
+import { MapPage, OrderPage } from "../pages";
 
 import { AngularFire } from "angularfire2";
 
@@ -58,6 +58,10 @@ export class HomePage {
 
     goToMap($event, order){
         this.nav.push(MapPage, order);
+    }
+
+    goToOrder($event, order){
+        this.nav.push(OrderPage, order);
     }
 
     refresh(refresher){

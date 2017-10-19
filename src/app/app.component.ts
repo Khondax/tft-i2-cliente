@@ -3,7 +3,8 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { LoginPage } from '../pages/pages';
+import { LoginPage, HomePage, RegistryPage } from '../pages/pages';
+import { AuthData } from '../providers/authdata';
 
 @Component({
     templateUrl: 'app.html'
@@ -15,11 +16,16 @@ export class MyApp {
 
     constructor(public platform: Platform,
                 public statusBar: StatusBar,
-                public splashScreen: SplashScreen) {
+                public splashScreen: SplashScreen,
+                public authData: AuthData) {
                     
-        this.rootPage = LoginPage;
+        if(this.authData.userAuth != "") {
+            this.rootPage = HomePage;
+        } else {
+            this.rootPage = LoginPage;
+        }
+        
         this.initializeApp();
-        // used for an example of ngFor and navigation
 
     }
 
@@ -37,4 +43,13 @@ export class MyApp {
         // we wouldn't want the back button to show in this scenario
         this.nav.setRoot(page.component);
     }
+
+    goToRegistry(){
+        this.nav.push(RegistryPage);
+    }
+
+    logout(){
+        this.authData.logoutUser();
+    }
+
 }

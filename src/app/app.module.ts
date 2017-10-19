@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { HomePage, LoginPage, MapPage, OrderPage, RegistryPage } from "../pages/pages";
+import { AuthData } from '../providers/authdata';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -46,6 +47,7 @@ export const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
+    AuthData,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -19,7 +19,7 @@
 
     <ion-list>
         <ion-item-group>
-            <ion-item *ngFor="let order of allOrders" (click)="goToMap($event, order)">
+            <ion-item *ngFor="let order of allOrders" (click)="goToOrder($event, order)">
                 <h1>IdPedido: {{order.idPaquete}}</h1>
                 <h2>Fecha almacén: {{order.fechaEntradaAlmacen}}</h2>
                 <h2>Remitente: {{order.remitente}}</h2>

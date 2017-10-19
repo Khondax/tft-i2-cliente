@@ -3,6 +3,7 @@ import { NavController, MenuController, AlertController, LoadingController } fro
 import { FormBuilder } from '@angular/forms';
 
 import { HomePage } from "../pages";
+import { AuthData } from "../../providers/authdata";
 
 import { AngularFire } from "angularfire2";
 
@@ -23,7 +24,8 @@ export class LoginPage {
                 private alertCtrl: AlertController,
                 private loadingCtrl: LoadingController,
                 private formBuilder: FormBuilder,
-                private angularFire: AngularFire) {
+                private angularFire: AngularFire,
+                private authData: AuthData) {
 
         this.menuController.enable(false);
 
@@ -65,6 +67,7 @@ export class LoginPage {
                 alert.present();
             } else {
                 console.log(this.loginForm.value.dni);
+                this.authData.loginUser(this.loginForm.value.dni);
                 this.navCtrl.setRoot(HomePage, this.loginForm.value.dni);
             }
 

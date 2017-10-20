@@ -12,6 +12,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AngularFireModule } from "angularfire2";
 
+import { NativePageTransitions } from "@ionic-native/native-page-transitions";
+
 export const firebaseConfig = {
   apiKey: "AIzaSyDka8ZQF6bzjPhVJMZFAf7d0BBztxP_spg",
   authDomain: "app-repartos-tft.firebaseapp.com",
@@ -47,6 +49,7 @@ export const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
+    NativePageTransitions,
     AuthData,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

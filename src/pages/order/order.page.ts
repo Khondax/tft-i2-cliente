@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ToastController, ViewController } from 'ionic-angular';
 
 import { AngularFire, FirebaseListObservable } from "angularfire2";
-
-import { MapPage } from "../pages";
 
 @Component({
     templateUrl: 'order.page.html',
@@ -18,7 +16,8 @@ export class OrderPage {
                 private navParams: NavParams,
                 private alertController: AlertController,
                 private angularFire: AngularFire,
-                private toastController: ToastController) {
+                private toastController: ToastController,
+                private view: ViewController) {
 
         
         this.orderData = this.navParams.data;
@@ -27,10 +26,6 @@ export class OrderPage {
 
     ionViewDidLoad(){
         this.orderObs = this.angularFire.database.list('/pedidos');
-    }
-
-    goToMap(){
-        this.nav.push(MapPage);
     }
 
     addName(){
@@ -63,6 +58,10 @@ export class OrderPage {
 
         });
         prompt.present();
+    }
+
+    goBack(){
+        this.view.dismiss();
     }
 
 }

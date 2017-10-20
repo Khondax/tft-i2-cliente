@@ -6,6 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage, HomePage, RegistryPage } from '../pages/pages';
 import { AuthData } from '../providers/authdata';
 
+import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
+
 @Component({
     templateUrl: 'app.html'
 })
@@ -17,7 +19,8 @@ export class MyApp {
     constructor(public platform: Platform,
                 public statusBar: StatusBar,
                 public splashScreen: SplashScreen,
-                public authData: AuthData) {
+                public authData: AuthData,
+                private pageTransition: NativePageTransitions) {
                     
         if(this.authData.userAuth != "") {
             this.rootPage = HomePage;
@@ -45,6 +48,19 @@ export class MyApp {
     }
 
     goToRegistry(){
+         let options: NativeTransitionOptions = {
+            direction: 'up',
+            duration: 500,
+            slowdownfactor: 3,
+            slidePixels: 20,
+            iosdelay: 100,
+            androiddelay: 150,
+            fixedPixelsTop: 0,
+            fixedPixelsBottom: 60
+        };
+
+        this.pageTransition.slide(options);
+
         this.nav.push(RegistryPage);
     }
 

@@ -20,4 +20,4 @@ TAREAS PENDIENTES
 ~ MEJORAS DE ESTILO ~
 - Retocar LoginPage.
 - Retocar OrderPage.
-- Añadir transiciones de páginas.
+- Añadir transiciones de páginas. AÑADIR MAS y mejor estilo

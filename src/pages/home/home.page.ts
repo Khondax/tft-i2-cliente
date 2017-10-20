@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController, MenuController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, MenuController, ModalController } from 'ionic-angular';
 
 import { MapPage, OrderPage } from "../pages";
 
 import { AngularFire } from "angularfire2";
 
 import _ from 'lodash';
+
+
 
 @Component({
     templateUrl: 'home.page.html',
@@ -17,12 +19,14 @@ export class HomePage {
     userDni: string;
     userData: any = {};
     allOrders = [];
+    queryText: string = "";    
 
     constructor(private nav: NavController,
                 private navParams: NavParams, 
                 private loadingController: LoadingController,
                 private menuController: MenuController,
-                private angularFire: AngularFire) {
+                private angularFire: AngularFire,
+                private modalCtrl: ModalController) {
 
         this.menuController.enable(true);
         this.userDni = this.navParams.data;
@@ -52,8 +56,6 @@ export class HomePage {
             loader.dismiss();
             
         });
-
-
     }
 
     goToMap($event, order){
@@ -61,12 +63,34 @@ export class HomePage {
     }
 
     goToOrder($event, order){
-        this.nav.push(OrderPage, order);
+
+        let modal = this.modalCtrl.create(OrderPage, order);
+        modal.present();
+
     }
 
     refresh(refresher){
         refresher.complete();
         this.ionViewDidLoad();
+    }
+
+    getIcon(order){
+        return (order.estado === "En reparto" || order.estado === "Siguiente en entrega") ? '../../assets/img/ruta.jpg' : '../../assets/img/almacen.png';
+    }
+
+    search(){
+        let queryTextLower = this.queryText.toLowerCase();
+        let filteredOrders = [];
+        
+        _.forEach(this.userData, dat => {
+            let orders = _.filter(dat, or => (<any>or).remitente.toLowerCase()
+            .includes(queryTextLower) || (<any>or).idPaquete.toString().includes(queryTextLower));
+            if (orders.length) {
+                filteredOrders = orders;
+            }
+        });
+
+        this.allOrders = filteredOrders;
     }
 
 }

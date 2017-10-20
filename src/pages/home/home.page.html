@@ -3,12 +3,15 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Home</ion-title>
+        <ion-title>Mis pedidos</ion-title>
     </ion-navbar>
+    
+    <ion-toolbar >
+        <ion-searchbar placeholder="Buscar" [(ngModel)]="queryText" (ionInput)="search()"></ion-searchbar>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
     <ion-refresher (ionRefresh)="refresh($event)">
         <ion-refresher-content>
             pullingIcon="arrow-dropdown"
@@ -19,13 +22,23 @@
 
     <ion-list>
         <ion-item-group>
-            <ion-item *ngFor="let order of allOrders" (click)="goToOrder($event, order)">
-                <h1>IdPedido: {{order.idPaquete}}</h1>
-                <h2>Fecha almacén: {{order.fechaEntradaAlmacen}}</h2>
-                <h2>Remitente: {{order.remitente}}</h2>
-                <h1>Estado: {{order.estado}}</h1>
-            </ion-item>
+            <ion-row *ngFor="let order of allOrders">
+                <ion-col col-9>
+                    <ion-item (click)="goToOrder($event, order)">
+                        <ion-avatar item-start>
+                        <img [src]="getIcon(order)">
+                        </ion-avatar>
+                        <h2 *ngIf= "!order.nombre">{{order.idPaquete}}</h2>
+                        <h2 *ngIf= "order.nombre">{{order.nombre}}</h2>
+                        <h6>{{order.remitente}}</h6> 
+                    </ion-item>
+                </ion-col>
+                <ion-col col-3>
+                    <button ion-button id="boton" *ngIf= "order.estado == 'Siguiente en entrega'" icon-only (click)="goToMap($event, order)">
+                        <ion-icon name="map"></ion-icon>
+                    </button>
+                </ion-col>
+            </ion-row>
         </ion-item-group>
     </ion-list>
-
 </ion-content>

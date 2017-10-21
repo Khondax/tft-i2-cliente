@@ -4,7 +4,7 @@ Proyecto en ionic2 para el trabajo final del Grado en Ingeniería Informática -
 TAREAS PENDIENTES
 
 ~ Home ~
-- Los pedidos se muestran como una lista con la siguiente información: idPaquete, fechaEntradaAlmacen, Remitente, Dirección, Peso, Dimensiones, Estado.
+- Solucionar error imagen en movil.
 
 ~ Order ~
 - Posibilidad de añadir un nombre a un pedido (que sustituirá al idPaquete). ---> RETOQUES PENDIENTES (mostrar el nombre en lugar del ID)

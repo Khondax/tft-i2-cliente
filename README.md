@@ -12,10 +12,6 @@ TAREAS PENDIENTES
 ~ Registry ~
 - Historial de pedidos recibidos. Mostrar idPedido (o nombre asignado anteriormente), fechaEntrega, Remitente y observaciones si las hubiera (o mostrar las observaciones como un ToastController al hacer click sobre un pedido). ---> RETOQUES PENDIENTES (mostrar más campos relevantes o acceso al pedido completo, con firma incluida)
 
-~ Map ~
-- Ver ubicación en tiempo real cuando su paquete esté marcado como próxima entrega. El botón para acceder al mapa se mostrará al cumplir esa condición.
-
-
 ~ MEJORAS DE ESTILO ~
 - Retocar LoginPage.
 - Retocar OrderPage.

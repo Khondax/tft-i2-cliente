@@ -43,7 +43,7 @@ export class HomePage {
         loader.present().then(() => {
             this.angularFire.database.list('/pedidos').subscribe(data =>{
                 this.userData = _.chain(data)
-                                .filter(a => a.dni === this.userDni)
+                                .filter(a => a.dni === this.userDni && a.estado != "Entregado")
                                 .orderBy('fechaEntradaAlmacen')
                                 .value();
     
@@ -80,17 +80,11 @@ export class HomePage {
 
     search(){
         let queryTextLower = this.queryText.toLowerCase();
-        let filteredOrders = [];
-        
-        _.forEach(this.userData, dat => {
-            let orders = _.filter(dat, or => (<any>or).remitente.toLowerCase()
-            .includes(queryTextLower) || (<any>or).idPaquete.toString().includes(queryTextLower));
-            if (orders.length) {
-                filteredOrders = orders;
-            }
-        });
 
-        this.allOrders = filteredOrders;
+        let orders = _.filter(this.userData, or => (<any>or).remitente.toLowerCase()
+        .includes(queryTextLower) || (<any>or).idPaquete.toString().includes(queryTextLower));
+
+        this.allOrders = orders;
     }
 
 }

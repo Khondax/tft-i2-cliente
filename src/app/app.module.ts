@@ -14,6 +14,8 @@ import { AngularFireModule } from "angularfire2";
 
 import { NativePageTransitions } from "@ionic-native/native-page-transitions";
 
+import { GoogleMaps } from "@ionic-native/google-maps";
+
 export const firebaseConfig = {
   apiKey: "AIzaSyDka8ZQF6bzjPhVJMZFAf7d0BBztxP_spg",
   authDomain: "app-repartos-tft.firebaseapp.com",
@@ -51,6 +53,7 @@ export const firebaseConfig = {
     SplashScreen,
     NativePageTransitions,
     AuthData,
+    GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

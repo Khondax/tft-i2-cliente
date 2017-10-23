@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, AlertController } from 'ionic-angular';
+import { NavController, LoadingController, AlertController, ModalController } from 'ionic-angular';
+
+import { OrderPage } from "../../pages/order/order.page";
 
 import { AuthData } from '../../providers/authdata';
 
@@ -22,7 +24,8 @@ import _ from 'lodash';
                 public alertController: AlertController,
                 public angularFire: AngularFire,
                 public loadingController: LoadingController,
-                private authData: AuthData){
+                private authData: AuthData,
+                private modalCtrl: ModalController){
 
     }
 
@@ -70,6 +73,12 @@ import _ from 'lodash';
         });
 
         this.orders = filteredOrders;
+    }
+
+    goToOrder($event, order){
+
+        let modal = this.modalCtrl.create(OrderPage, order);
+        modal.present();
     }
 
 

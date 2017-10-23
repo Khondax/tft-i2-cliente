@@ -7,10 +7,7 @@ TAREAS PENDIENTES
 - Solucionar error imagen en movil.
 
 ~ Order ~
-- Posibilidad de añadir un nombre a un pedido (que sustituirá al idPaquete). ---> RETOQUES PENDIENTES (mostrar el nombre en lugar del ID)
-
-~ Registry ~
-- Historial de pedidos recibidos. Mostrar idPedido (o nombre asignado anteriormente), fechaEntrega, Remitente y observaciones si las hubiera (o mostrar las observaciones como un ToastController al hacer click sobre un pedido). ---> RETOQUES PENDIENTES (mostrar más campos relevantes o acceso al pedido completo, con firma incluida)
+- Posibilidad de añadir un nombre a un pedido (que sustituirá al idPaquete). ---> RETOQUES PENDIENTES (Mostrar el nombre en lugar del ID) && (Mostrar pedidos finalizados con un estilo diferente y su firma).
 
 ~ MEJORAS DE ESTILO ~
 - Retocar LoginPage.

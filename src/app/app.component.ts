@@ -47,6 +47,21 @@ export class MyApp {
         this.nav.setRoot(page.component);
     }
 
+    goHome(){
+        let view = this.nav.getActive();
+        if (view.component.name != "HomePage"){
+            let options: NativeTransitionOptions = {
+                origin: 'left',
+                action: 'open',
+                duration: 300
+            };
+    
+            this.pageTransition.drawer(options);
+    
+            this.nav.push(HomePage);
+        }
+    }
+
     goToRegistry(){
          let options: NativeTransitionOptions = {
             direction: 'up',

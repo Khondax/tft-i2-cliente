@@ -75,7 +75,7 @@ export class HomePage {
     }
 
     getIcon(order){
-        return (order.estado === "En reparto" || order.estado === "Siguiente en entrega") ? '../../assets/img/ruta.jpg' : '../../assets/img/almacen.png';
+        return (order.estado === "En reparto" || order.estado === "Siguiente en entrega") ? 'assets/img/ruta.jpg' : 'assets/img/almacen.png';
     }
 
     search(){

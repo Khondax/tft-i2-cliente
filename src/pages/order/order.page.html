@@ -1,10 +1,17 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-title>Pedido</ion-title>
+    <ion-toolbar color="primary">
+        <ion-title *ngIf="!orderData.nombre">{{orderData.idPaquete}}</ion-title>
+        <ion-title *ngIf="orderData.nombre">{{orderData.nombre}}</ion-title>
 
         <ion-buttons left>
             <button ion-button icon-only (click)="goBack()">
                 <ion-icon name="arrow-round-back"></ion-icon>
+            </button>
+        </ion-buttons>
+
+        <ion-buttons right>
+            <button ion-button icon-only (click)="addName()">
+                <ion-icon name="create"></ion-icon>
             </button>
         </ion-buttons>
         
@@ -12,9 +19,80 @@
 </ion-header>
 
 <ion-content padding>
+    <ion-list>
+        <ion-item>
+            ID Paquete
+            <ion-note class="blue" item-end>
+                {{orderData.idPaquete}}
+            </ion-note>
+        </ion-item>
 
-    <button ion-button full (click)="addName()">
-        cambiar nombre
-    </button>
+        <ion-item>
+            Remitente
+            <ion-note class="blue" item-end>
+                {{orderData.remitente}}
+            </ion-note>
+        </ion-item>
+
+        <ion-item>
+            Dirección
+            <ion-note class="blue" item-end>
+                {{orderData.direccion}}
+            </ion-note>
+        </ion-item>
+
+        <ion-item>
+            Peso
+            <ion-note class="blue" item-end>
+                {{orderData.peso}}
+            </ion-note>
+        </ion-item>
+
+        <ion-item>
+            Dimensiones
+            <ion-note class="blue" item-end>
+                {{orderData.dimensiones}}
+            </ion-note>
+        </ion-item>
+
+        <ion-item>
+            Estado
+            <ion-note class="blue" *ngIf="orderData.estado == 'En el almacén' || orderData.estado == 'Incidencia registrada' || orderData.estado == 'Asignado'" item-end>
+                En el almacén
+            </ion-note>
+
+            <ion-note class="blue" *ngIf="orderData.estado == 'Siguiente en entrega' || orderData.estado == 'En reparto'" item-end>
+                Entrega hoy
+            </ion-note>
+
+            <ion-note class="blue" *ngIf="orderData.estado == 'Entregado'" item-end>
+                Entregado
+            </ion-note>
+        </ion-item>
+
+        <ion-item>
+            Entrada a almacén
+            <ion-note class="blue" item-end>
+                {{orderData.fechaEntradaAlmacen | date:'dd/MM/yy'}} - {{orderData.fechaEntradaAlmacen | date:'shortTime'}}
+            </ion-note>
+        </ion-item>
+
+        <ion-item *ngIf= "orderData.fechaEntrega">
+            Fecha de entrega
+            <ion-note class="blue" item-end>
+               {{orderData.fechaEntrega | date:'dd/MM/yy'}} - {{orderData.fechaEntrega | date:'shortTime'}}
+            </ion-note>
+        </ion-item>
+
+        <ion-item *ngIf= "orderData.firma">
+            Firma del cliente
+            <ion-thumbnail item-end>
+                <img src= "{{orderData.firma}}">
+            </ion-thumbnail>
+        </ion-item>
+
+
+        
+    </ion-list>
 
 </ion-content>

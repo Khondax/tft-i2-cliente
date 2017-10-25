@@ -14,3 +14,30 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+#toolbar {
+    background-image: url('/assets/img/fondo3.jpg');
+    background-size: cover;
+}
+
+#lista {
+    position: fixed;
+    width: 100%;
+}
+
+.itemLat {
+    margin-top: 6%;
+    margin-bottom: 6%;
+    border-color: rgba(0, 0, 0, 0);
+	background-color: rgba(0, 0, 0, 0);
+    color: white;
+}
+
+.itemLatClose {
+    margin-top: 125%;
+    margin-bottom: 20%;
+    border-color: rgba(0, 0, 0, 0);
+	background-color: rgba(0, 0, 0, 0);
+    color: white;
+}

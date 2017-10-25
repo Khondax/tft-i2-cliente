@@ -1,7 +1,20 @@
 .login-page {
-    background-color:#f53d3d;
+    //background-color:#f53d3d;
+    background-color: #4780e2;
+
+    img {
+        position: fixed;
+        top: 5%;
+        left: 10%;
+        width: 80%;
+    }
 
     ion-item {
+        position: fixed;
+        top: 60%;
+        left: 10%;
+        margin-right: -10%;
+        width: 80%;
         border-radius: 30px !important;
         margin-bottom: 20px;
         background-color: #f6f6f6;
@@ -9,12 +22,16 @@
     }
 
     .login-button {
-        width: 100%;
+        position: fixed;
+        top: 67%;
+        left: 10%;
+        margin-right: -10%;
+        width: 80%;
         border-radius: 30px;
         font-size: 0.9em;
         margin-top: 25px;
         border: 1px solid #fff;
-        background-color: #D71919;
+        background-color: #3771df;
     }
 
 }

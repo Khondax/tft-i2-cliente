@@ -9,7 +9,7 @@
         width: 80%;
     }
 
-    ion-item {
+    .dniLogin {
         position: fixed;
         top: 60%;
         left: 10%;
@@ -21,9 +21,21 @@
         font-size: 0.9em;
     }
 
+    .passLogin {
+        position: fixed;
+        top: 70%;
+        left: 10%;
+        margin-right: -10%;
+        width: 80%;
+        border-radius: 30px !important;
+        margin-bottom: 20px;
+        background-color: #f6f6f6;
+        font-size: 0.9em;
+    }
+
     .login-button {
         position: fixed;
-        top: 67%;
+        top: 76%;
         left: 10%;
         margin-right: -10%;
         width: 80%;

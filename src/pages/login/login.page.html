@@ -3,8 +3,14 @@
     <img src="/assets/img/icon3.png">
 
     <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
-        <ion-item>
-            <ion-input formControlName="dni" type="dni" placeholder="Documento Nacional de Identidad"></ion-input>
+        <ion-item class="dniLogin">
+            <ion-input formControlName="dni" type="dni" placeholder="DNI, p.e: 44734470E"></ion-input>
+        </ion-item>
+
+        <ion-item class="passLogin">
+            <ion-input formControlName="pass" type="pass" placeholder="Contraseña"
+            [class.invalid]="!loginForm.controls.pass.valid && loginForm.controls.pass.dirty"
+            [class.valid]="loginForm.controls.pass.valid && loginForm.controls.pass.dirty"></ion-input>            
         </ion-item>
 
         <button ion-button class="login-button" type="submit">

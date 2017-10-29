@@ -40,7 +40,7 @@ import _ from 'lodash';
 
             this.angularFire.database.list('/pedidos').subscribe(data => {
                 this.allData = _.chain(data)
-                               .filter(a => a.dni === this.authData.getCurrentDni())
+                               .filter(a => a.dni === this.authData.getCurrentDni().split('@').shift().toUpperCase())
                                .orderBy('fechaEntrega', 'desc')
                                .groupBy(fecha => fecha.fechaEntrega.split('T)').shift())
                                .toPairs()

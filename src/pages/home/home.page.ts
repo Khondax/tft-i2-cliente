@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController, MenuController, ModalController } from 'ionic-angular';
+import { NavController, LoadingController, MenuController, ModalController } from 'ionic-angular';
 
 import { MapPage, OrderPage } from "../pages";
 
@@ -7,7 +7,7 @@ import { AngularFire } from "angularfire2";
 
 import _ from 'lodash';
 
-
+import { AuthData } from '../../providers/authdata';
 
 @Component({
     templateUrl: 'home.page.html',
@@ -22,15 +22,15 @@ export class HomePage {
     queryText: string = "";    
 
     constructor(private nav: NavController,
-                private navParams: NavParams, 
+                private authData: AuthData,
                 private loadingController: LoadingController,
                 private menuController: MenuController,
                 private angularFire: AngularFire,
                 private modalCtrl: ModalController) {
 
         this.menuController.enable(true);
-        this.userDni = this.navParams.data;
-        
+
+        this.userDni = this.authData.getCurrentDni().split('@').shift().toUpperCase();
     }
 
     ionViewDidLoad(){
@@ -50,8 +50,6 @@ export class HomePage {
                 this.allOrders = this.userData;
 
             });
-
-               
             
             loader.dismiss();
             

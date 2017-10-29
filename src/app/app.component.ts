@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { LoginPage, HomePage, RegistryPage } from '../pages/pages';
 import { AuthData } from '../providers/authdata';
+import { AngularFire } from 'angularfire2';
 
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
@@ -17,16 +18,20 @@ export class MyApp {
     rootPage: any;
 
     constructor(public platform: Platform,
+                public angularFire: AngularFire,
                 public statusBar: StatusBar,
                 public splashScreen: SplashScreen,
                 public authData: AuthData,
                 private pageTransition: NativePageTransitions) {
                     
-        if(this.authData.userAuth != "") {
-            this.rootPage = HomePage;
-        } else {
-            this.rootPage = LoginPage;
-        }
+        const authObserver = angularFire.auth.subscribe(user => {
+            if(user){
+                this.rootPage = HomePage;
+                authObserver.unsubscribe();
+            } else {
+                this.rootPage = LoginPage;
+            }
+        });
         
         this.initializeApp();
 
@@ -81,6 +86,7 @@ export class MyApp {
 
     logout(){
         this.authData.logoutUser();
+        this.nav.push(LoginPage);
     }
 
 }

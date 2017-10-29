@@ -1,6 +1,6 @@
 <ion-content padding class="login-page">
       
-    <img src="/assets/img/icon3.png">
+    <img src="assets/img/icon3.png">
 
     <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
         <ion-item class="dniLogin">
@@ -8,7 +8,7 @@
         </ion-item>
 
         <ion-item class="passLogin">
-            <ion-input formControlName="pass" type="pass" placeholder="Contraseña"
+            <ion-input formControlName="pass" type="password" placeholder="Contraseña"
             [class.invalid]="!loginForm.controls.pass.valid && loginForm.controls.pass.dirty"
             [class.valid]="loginForm.controls.pass.valid && loginForm.controls.pass.dirty"></ion-input>            
         </ion-item>

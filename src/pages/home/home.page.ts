@@ -48,10 +48,10 @@ export class HomePage {
                                 .value();
     
                 this.allOrders = this.userData;
+                loader.dismiss();
 
             });
             
-            loader.dismiss();
             
         });
     }

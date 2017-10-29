@@ -4,7 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import _ from 'lodash';
 import { AngularFire } from "angularfire2";
 
-import { GoogleMaps, GoogleMap, GoogleMapOptions, GoogleMapsEvent, CameraPosition, MarkerOptions, Marker, MarkerCluster } from "@ionic-native/google-maps";
+import { GoogleMaps, GoogleMap, GoogleMapOptions, GoogleMapsEvent } from "@ionic-native/google-maps";
 
 @Component({
     templateUrl: 'map.page.html',

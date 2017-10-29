@@ -10,7 +10,7 @@ import { AuthData } from '../providers/authdata';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { AngularFireModule } from "angularfire2";
+import { AngularFireModule, AuthProviders, AuthMethods } from "angularfire2";
 
 import { NativePageTransitions } from "@ionic-native/native-page-transitions";
 
@@ -25,6 +25,11 @@ export const firebaseConfig = {
   messagingSenderId: "1059307361256"
 };
 
+const myFirebaseAuthConfig = {
+  provider: AuthProviders.Password,
+  method: AuthMethods.Password
+}
+
 @NgModule({
   declarations: [
     MyApp,
@@ -37,7 +42,7 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

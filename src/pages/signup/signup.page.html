@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Nuevo registro</ion-title>
+    </ion-navbar>  
+</ion-header>
+
+<ion-content padding class="signup-page">
+
+    <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
+        <ion-item class="nameSignup">
+            <ion-input formControlName="name" type="text" placeholder="Nombre y apellidos"></ion-input>
+        </ion-item>
+
+        <ion-item class="dniSignup">
+            <ion-input formControlName="dni" type="text" placeholder="DNI, p.e: 44734470E"></ion-input>
+        </ion-item>
+
+        <ion-item class="passSignup">
+            <ion-input formControlName="pass" type="password" placeholder="Contraseña"
+            [class.invalid]="!signupForm.controls.pass.valid && signupForm.controls.pass.dirty"
+            [class.valid]="signupForm.controls.pass.valid && signupForm.controls.pass.dirty"></ion-input>            
+        </ion-item>
+
+        <button ion-button class="signup-button" type="submit">
+            Acceder
+        </button>
+    </form>
+
+</ion-content>

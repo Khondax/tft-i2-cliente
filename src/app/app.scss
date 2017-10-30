@@ -17,16 +17,17 @@
 
 
 #toolbar {
-    background-image: url('assets/img/background3.jpg');
-    background-color: rgb(101, 157, 253);
-    height: 105px;
+    background-image: url('/assets/img/background3.jpg');
+    background-size: cover;
+    //background-color: rgb(101, 157, 253);
+    height: 150px;
     width: 100%;
 }
 
 .logo{
     border-radius: 50%;
-    height: 70px;
-    margin-top: 20px;
+    height: 80px;
+    margin-top: 30px;
     margin-left: 20px;
 }
 
@@ -35,15 +36,21 @@
     width: 100%;
 }
 
-.itemLat {
-    margin-bottom: 15px;
+.itemLatPort {
+    margin-top: 5%;
+    border-color: rgba(0, 0, 0, 0);
+	background-color: rgba(0, 0, 0, 0);
+    color: black;
+}
+.itemLatHist {
+    margin-top: 5%;
     border-color: rgba(0, 0, 0, 0);
 	background-color: rgba(0, 0, 0, 0);
     color: black;
 }
 
 .itemLatClose {
-    margin-top: 100%;
+    margin-top: 95%;
     margin-bottom: 10%;
     border-color: rgba(0, 0, 0, 0);
 	background-color: rgba(0, 0, 0, 0);

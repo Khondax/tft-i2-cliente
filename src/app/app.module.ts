@@ -4,7 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 
-import { HomePage, LoginPage, MapPage, OrderPage, RegistryPage } from "../pages/pages";
+import { HomePage, LoginPage, MapPage, OrderPage, RegistryPage, SignupPage } from "../pages/pages";
 import { AuthData } from '../providers/authdata';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -37,7 +37,8 @@ const myFirebaseAuthConfig = {
     LoginPage,
     MapPage,
     OrderPage,
-    RegistryPage
+    RegistryPage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +52,8 @@ const myFirebaseAuthConfig = {
     LoginPage,
     MapPage,
     OrderPage,
-    RegistryPage
+    RegistryPage,
+    SignupPage
   ],
   providers: [
     StatusBar,

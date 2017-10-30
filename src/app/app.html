@@ -1,5 +1,10 @@
 <ion-menu [content]="content">
-    <ion-content id="toolbar">
+
+    <ion-header #toolbar id="toolbar">
+        <img class="logo" src='assets/img/icon3.png'>
+    </ion-header>
+
+    <ion-content>
         <ion-list id="lista">
             <button class="itemLat" menuClose ion-item (click)="goHome()">
                 <ion-icon name="home"></ion-icon>

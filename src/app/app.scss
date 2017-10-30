@@ -17,8 +17,17 @@
 
 
 #toolbar {
-    background-image: url('../assets/img/fondo3.jpg');
-    background-size: cover;
+    background-image: url('assets/img/background3.jpg');
+    background-color: rgb(101, 157, 253);
+    height: 105px;
+    width: 100%;
+}
+
+.logo{
+    border-radius: 50%;
+    height: 70px;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 #lista {
@@ -27,17 +36,16 @@
 }
 
 .itemLat {
-    margin-top: 6%;
-    margin-bottom: 6%;
+    margin-bottom: 15px;
     border-color: rgba(0, 0, 0, 0);
 	background-color: rgba(0, 0, 0, 0);
-    color: white;
+    color: black;
 }
 
 .itemLatClose {
-    margin-top: 135%;
+    margin-top: 100%;
     margin-bottom: 10%;
     border-color: rgba(0, 0, 0, 0);
 	background-color: rgba(0, 0, 0, 0);
-    color: white;
+    color: black;
 }

@@ -20,6 +20,8 @@
         </ion-refresher-content>
     </ion-refresher>
 
+    <h4 *ngIf="allOrders < 1" >Parece que no tienes pedidos pendientes</h4>
+
     <ion-list>
         <ion-item-group>
             <ion-row *ngFor="let order of allOrders">

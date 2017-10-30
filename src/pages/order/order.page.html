@@ -77,6 +77,20 @@
             </ion-note>
         </ion-item>
 
+        <ion-item *ngIf="orderData.estado =='En el almacén' || orderData.estado == 'Asignado'" >
+            Fecha estimada de entrega
+            <ion-note class="blue" item-end>
+                {{orderData.fechaEstimadaEntrega | date:'dd/MM/yy'}}
+            </ion-note>
+        </ion-item>
+
+        <ion-item *ngIf="orderData.estado =='En reparto' || orderData.estado == 'Siguiente en entrega'" >
+            Fecha estimada de entrega
+            <ion-note class="blue" item-end>
+                Hoy
+            </ion-note>
+        </ion-item>
+
         <ion-item *ngIf= "orderData.fechaEntrega">
             Fecha de entrega
             <ion-note class="blue" item-end>

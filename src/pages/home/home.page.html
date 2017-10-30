@@ -23,17 +23,21 @@
     <ion-list>
         <ion-item-group>
             <ion-row *ngFor="let order of allOrders">
-                <ion-col col-9>
+                <ion-col col-10>
                     <ion-item (click)="goToOrder($event, order)">
                         <ion-avatar item-start>
                         <img [src]="getIcon(order)">
                         </ion-avatar>
                         <h2 *ngIf= "!order.nombre">{{order.idPaquete}}</h2>
                         <h2 *ngIf= "order.nombre">{{order.nombre}}</h2>
-                        <h6>{{order.remitente}}</h6> 
+                        <h3 *ngIf="order.estado == 'En el almacén'" >Fecha estimada de entrega: {{order.fechaEstimadaEntrega | date:'dd/MM/yy'}}</h3>
+                        <h3 *ngIf="order.estado == 'Asignado'" >Fecha estimada de entrega: {{order.fechaEstimadaEntrega | date:'dd/MM/yy'}}</h3>
+                        <h3 *ngIf="order.estado == 'En reparto'" >Fecha estimada de entrega: Hoy</h3>
+                        <h3 *ngIf="order.estado == 'Siguiente en entrega'" >Fecha estimada de entrega: Hoy</h3>
+                        <h6>{{order.remitente}}</h6>
                     </ion-item>
                 </ion-col>
-                <ion-col col-3>
+                <ion-col col-2>
                     <button ion-button id="boton" *ngIf= "order.estado == 'Siguiente en entrega'" icon-only (click)="goToMap($event, order)">
                         <ion-icon name="map"></ion-icon>
                     </button>

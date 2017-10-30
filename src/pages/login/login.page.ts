@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, MenuController, AlertController, LoadingController } from 'ionic-angular';
 import { FormBuilder, Validators } from '@angular/forms';
 
-import { HomePage } from "../pages";
+import { HomePage, SignupPage } from "../pages";
 import { AuthData } from "../../providers/authdata";
 
 import { AngularFire } from "angularfire2";
@@ -35,6 +35,10 @@ export class LoginPage {
             dni: [''],
             pass: ['', Validators.compose([Validators.minLength(6), Validators.required])]
         });
+    }
+
+    signupUser(){
+        this.navCtrl.push(SignupPage);
     }
 
     loginUser(){
